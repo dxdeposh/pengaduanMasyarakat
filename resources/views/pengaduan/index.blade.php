@@ -89,7 +89,7 @@
                             </form>
 
                             <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
-                                style="display:inline;">
+                                style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
@@ -128,4 +128,13 @@
             {{ $pengaduans->links() }}
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        function confirmDelete() {
+            console.log('Confirm delete called'); // Log untuk memeriksa apakah fungsi dipanggil
+            return confirm('Apakah Anda yakin ingin menghapus pengaduan ini?');
+        }
+    </script>
 @endsection
