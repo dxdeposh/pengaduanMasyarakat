@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengaduans', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->text('isi_pengaduan');
-            $table->timestamps();
+        Schema::table('pengaduans', function (Blueprint $table) {
+            $table->enum('status', ['menunggu', 'diproses', 'selesai'])->default('menunggu');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengaduans');
+        Schema::table('pengaduans', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 };

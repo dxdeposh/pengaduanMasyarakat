@@ -74,6 +74,45 @@
         {{-- //Testimoni Pengguna --}}
 
 
+        {{-- Status --}}
+
+        @foreach ($pengaduans as $pengaduan)
+            <div class="col mt-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $pengaduan->nama }}</h5>
+                        <p class="card-text">{{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
+                        <span class="badge bg-info">{{ ucfirst($pengaduan->status) }}</span>
+
+
+                        <div class="mt-3">
+                            <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm">Edit</a>
+
+                            <!-- Tombol untuk update status -->
+                            <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    Ubah Status
+                                </button>
+                            </form>
+
+                            <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+
+        {{-- // Status --}}
+
         <!-- Pagination -->
         <div class="mt-4">
             {{ $pengaduans->links() }}

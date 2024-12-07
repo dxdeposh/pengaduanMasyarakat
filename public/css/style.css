@@ -1,3 +1,17 @@
+/* Navbar styling */
+.navbar {
+    background-color: #007bff !important; /* Warna biru navbar */
+}
+
+.navbar a.nav-link {
+    color: red !important; /* Warna teks navbar */
+}
+
+.navbar a.nav-link.active {
+    color: #ffd700 !important; /* Warna teks untuk link yang aktif */
+}
+
+
 /* Body */
 
 body {
@@ -86,4 +100,3 @@ input[type="text"]:focus, textarea:focus {
         padding: 15px;
     }
 }
-

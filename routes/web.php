@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::resource('pengaduan', PengaduanController::class);
+Route::put('/pengaduan/{id}/status', [PengaduanController::class, 'updateStatus'])->name('pengaduan.updateStatus');
+

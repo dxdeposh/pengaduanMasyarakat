@@ -8,18 +8,18 @@ use Illuminate\Http\Request;
 class PengaduanController extends Controller
 {
     public function index(Request $request)
-{
-    // Ambil pencarian dari query string jika ada
-    $search = $request->get('search');
+    {
+        // Ambil pencarian dari query string jika ada
+        $search = $request->get('search');
 
-    // Gunakan paginate dan search
-    $pengaduans = Pengaduan::when($search, function ($query, $search) {
-        return $query->where('nama', 'like', '%' . $search . '%')
-                     ->orWhere('isi_pengaduan', 'like', '%' . $search . '%');
-    })->paginate(6); // 6 item per halaman (bisa disesuaikan)
+        // Gunakan paginate dan search
+        $pengaduans = Pengaduan::when($search, function ($query, $search) {
+            return $query->where('nama', 'like', '%' . $search . '%')
+                ->orWhere('isi_pengaduan', 'like', '%' . $search . '%');
+        })->paginate(6); // 6 item per halaman (bisa disesuaikan)
 
-    return view('pengaduan.index', compact('pengaduans'));
-}
+        return view('pengaduan.index', compact('pengaduans'));
+    }
 
     public function create()
     {
@@ -60,5 +60,27 @@ class PengaduanController extends Controller
         $pengaduan->delete();
 
         return redirect()->route('pengaduan.index')->with('success', 'Pengaduan berhasil dihapus');
+    }
+
+    public function updateStatus($id)
+    {
+        $pengaduan = Pengaduan::findOrFail($id);
+
+        // Ubah status berdasarkan status saat ini
+        switch ($pengaduan->status) {
+            case 'menunggu':
+                $pengaduan->status = 'diproses';
+                break;
+            case 'diproses':
+                $pengaduan->status = 'selesai';
+                break;
+            case 'selesai':
+                // Status sudah selesai, tidak ada perubahan lebih lanjut
+                return redirect()->route('pengaduan.index')->with('info', 'Pengaduan sudah selesai.');
+        }
+
+        $pengaduan->save();
+
+        return redirect()->route('pengaduan.index')->with('success', 'Status pengaduan diperbarui.');
     }
 }
