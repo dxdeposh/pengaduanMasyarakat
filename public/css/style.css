@@ -1,0 +1,89 @@
+/* Body */
+
+body {
+    background-color: #F5F7FA; /* Warna abu-abu terang */
+    background-image: linear-gradient(to bottom right, #F5F7FA, #e0e0e0); /* Gradasi lembut */
+    color: #333; /* Warna teks yang nyaman dibaca */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #ffffff; /* Background putih untuk area konten */
+    border-radius: 15px; /* Sudut melengkung pada container */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow untuk kedalaman */
+    padding: 30px;
+    margin-top: 30px;
+    flex-grow: 1;
+}
+
+
+/* // Body */
+
+/* Card */
+.card {
+    border-radius: 15px; /* Sudut melengkung pada card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow pada card */
+    background-color: #ffffff; /* Latar belakang putih pada card */
+}
+
+.card-header {
+    background-color: #007bff; /* Warna latar belakang pada header card */
+    color: white; /* Teks berwarna putih di header */
+}
+
+.card-body {
+    padding: 20px;
+}
+/* // Card */
+
+
+.form-control {
+    border-radius: 10px;
+}
+/* Button */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px; /* Sudut melengkung pada tombol */
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Efek hover untuk tombol */
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+/* // Button */
+
+
+input[type="text"], textarea {
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.text-danger {
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+    .card-body {
+        padding: 15px;
+    }
+}
+
