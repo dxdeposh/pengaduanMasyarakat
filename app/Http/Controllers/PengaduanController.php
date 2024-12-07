@@ -16,7 +16,7 @@ class PengaduanController extends Controller
         $pengaduans = Pengaduan::when($search, function ($query, $search) {
             return $query->where('nama', 'like', '%' . $search . '%')
                 ->orWhere('isi_pengaduan', 'like', '%' . $search . '%');
-        })->paginate(6); // 6 item per halaman (bisa disesuaikan)
+        })->paginate(100); // 6 item per halaman (bisa disesuaikan)
 
         return view('pengaduan.index', compact('pengaduans'));
     }
