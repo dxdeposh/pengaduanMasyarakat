@@ -83,4 +83,10 @@ class PengaduanController extends Controller
 
         return redirect()->route('pengaduan.index')->with('success', 'Status pengaduan diperbarui.');
     }
+
+    public function show($id)
+    {
+        $pengaduan = Pengaduan::findOrFail($id);
+        return view('pengaduan.show', compact('pengaduan'));
+    }
 }

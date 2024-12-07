@@ -1,16 +1,3 @@
-/* Navbar styling */
-.navbar {
-    background-color: #007bff !important; /* Warna biru navbar */
-}
-
-.navbar a.nav-link {
-    color: red !important; /* Warna teks navbar */
-}
-
-.navbar a.nav-link.active {
-    color: #ffd700 !important; /* Warna teks untuk link yang aktif */
-}
-
 
 /* Body */
 
@@ -56,6 +43,7 @@ body {
 .form-control {
     border-radius: 10px;
 }
+
 /* Button */
 .btn-primary {
     background-color: #007bff;
@@ -77,6 +65,28 @@ body {
 
 .btn-warning:hover {
     background-color: #ec971f;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
 }
 /* // Button */
 

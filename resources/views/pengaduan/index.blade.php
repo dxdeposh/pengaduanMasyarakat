@@ -29,7 +29,7 @@
             </a>
         </div>
 
-        <!-- Daftar Pengaduan -->
+        {{-- <!-- Daftar Pengaduan -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             @foreach ($pengaduans as $pengaduan)
                 <div class="col">
@@ -54,8 +54,58 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
 
+
+
+
+
+        {{-- Status --}}
+
+        @foreach ($pengaduans as $pengaduan)
+            <div class="col mt-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $pengaduan->nama }}</h5>
+                        <p class="card-text">{{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
+                        <span class="badge bg-info">{{ ucfirst($pengaduan->status) }}</span>
+
+                        <div class="mt-3">
+                            <!-- Tombol Lihat Selengkapnya -->
+                            <a href="{{ route('pengaduan.show', $pengaduan->id) }}" class="btn btn-secondary btn-sm "><i
+                                    class="bi bi-eye"></i> Lihat
+                                Selengkapnya</a>
+
+                            <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
+                                    class="bi bi-pencil-square"></i> Edit</a>
+
+                            <!-- Tombol untuk update status -->
+                            <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check"></i> Ubah
+                                    Status</button>
+                            </form>
+
+                            <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
+                                    Hapus</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+
+
+        {{-- // Status --}}
 
         {{-- Testimoni Pengguna --}}
 
@@ -72,46 +122,6 @@
 
 
         {{-- //Testimoni Pengguna --}}
-
-
-        {{-- Status --}}
-
-        @foreach ($pengaduans as $pengaduan)
-            <div class="col mt-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $pengaduan->nama }}</h5>
-                        <p class="card-text">{{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
-                        <span class="badge bg-info">{{ ucfirst($pengaduan->status) }}</span>
-
-
-                        <div class="mt-3">
-                            <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm">Edit</a>
-
-                            <!-- Tombol untuk update status -->
-                            <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('PUT')
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    Ubah Status
-                                </button>
-                            </form>
-
-                            <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-
-
-        {{-- // Status --}}
 
         <!-- Pagination -->
         <div class="mt-4">
