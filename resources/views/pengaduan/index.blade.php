@@ -61,13 +61,14 @@
                                     class="bi bi-pencil-square"></i> Edit</a>
 
                             <!-- Tombol untuk update status -->
-                            {{-- <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
+                            <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
                                 style="display:inline;">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check"></i> Ubah
                                     Status</button>
-                            </form> --}}
+                            </form>
+                            
                             <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
                                 style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
@@ -99,7 +100,7 @@
                             </div>
                         </div>
                         <blockquote class="blockquote">
-                            <p class="mb-0">{{ $testimoni->testimoni }}</p>
+                            <p class="mb-0"><i class="bi bi-chat-left-quote-fill"></i>  {{ $testimoni->testimoni }}</p>
                         </blockquote>
                     </div>
                 @endforeach
