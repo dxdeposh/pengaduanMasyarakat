@@ -17,7 +17,7 @@
 
                             <!-- Nama Pengadu -->
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama Pengadu</label>
+                                <label for="nama" class="form-label"><i class="bi bi-person-circle"></i> Nama Pengadu</label>
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     value="{{ old('nama', $pengaduan->nama) }}" required>
                                 @error('nama')
@@ -27,7 +27,7 @@
 
                             <!-- Isi Pengaduan -->
                             <div class="mb-3">
-                                <label for="isi_pengaduan" class="form-label">Isi Pengaduan</label>
+                                <label for="isi_pengaduan" class="form-label"><i class="bi bi-chat-left-quote-fill"></i> Isi Pengaduan</label>
                                 <textarea class="form-control" id="isi_pengaduan" name="isi_pengaduan" rows="4" required>{{ old('isi_pengaduan', $pengaduan->isi_pengaduan) }}</textarea>
                                 @error('isi_pengaduan')
                                     <div class="text-danger">{{ $message }}</div>
@@ -37,7 +37,7 @@
                             <!-- Menampilkan Gambar Lama -->
                             @if ($pengaduan->gambar)
                                 <div class="mb-3">
-                                    <label for="gambar_lama" class="form-label">Gambar Sebelumnya</label>
+                                    <label for="gambar_lama" class="form-label"><i class="bi bi-image"></i> Gambar Sebelumnya</label>
                                     <div>
                                         <img src="{{ asset('images/' . $pengaduan->gambar) }}" alt="Gambar Pengaduan"
                                             class="img-fluid rounded" style="max-height: 200px; width: auto;">
@@ -47,7 +47,7 @@
 
                             <!-- Input Gambar Baru -->
                             <div class="mb-3">
-                                <label for="gambar" class="form-label">Pilih Gambar Baru (Opsional)</label>
+                                <label for="gambar" class="form-label"><i class="bi bi-image"></i> Pilih Gambar Baru (Opsional)</label>
                                 <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*">
                                 @error('gambar')
                                     <div class="text-danger">{{ $message }}</div>

@@ -81,13 +81,13 @@
                 </div>
             </div>
         @endforeach
-        
+
         {{-- // End Daftar Pengaduan --}}
 
         {{-- Testimoni Pengguna --}}
         <div class="card mt-4 shadow-lg border-0 rounded-lg">
             <div class="card-header bg-gradient text-white">
-                <h5 class="mb-0">Testimoni Pengguna</h5>
+                <h5 class="mb-0"><i class="bi bi-chat-left-quote-fill"></i>  Testimoni Pengguna</h5>
             </div>
             <div class="card-body">
                 @foreach ($testimonis as $testimoni)
@@ -114,18 +114,18 @@
         {{-- Form untuk menambahkan testimoni --}}
         <div class="card mt-4 shadow-lg border-0 rounded-lg">
             <div class="card-header bg-gradient text-white">
-                <h5 class="mb-0">Tambah Testimoni</h5>
+                <h5 class="mb-0"><i class="bi bi-chat-left-quote-fill"></i>  Tambah Testimoni</h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('testimoni.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Pengguna</label>
+                        <label for="nama" class="form-label"><i class="bi bi-person-circle"></i>  Nama Pengguna</label>
                         <input type="text" class="form-control form-control-lg shadow-sm" id="nama" name="nama"
                             required placeholder="Masukkan nama Anda" style="border-radius: 10px;">
                     </div>
                     <div class="mb-3">
-                        <label for="testimoni" class="form-label">Testimoni</label>
+                        <label for="testimoni" class="form-label"><i class="bi bi-chat-left-quote-fill"></i> Testimoni</label>
                         <textarea class="form-control form-control-lg shadow-sm" id="testimoni" name="testimoni" rows="4" required
                             placeholder="Tuliskan testimoni Anda" style="border-radius: 10px;"></textarea>
                     </div>

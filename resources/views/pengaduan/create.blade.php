@@ -15,7 +15,7 @@
 
                             <!-- Nama Pengadu -->
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama Pengadu</label>
+                                <label for="nama" class="form-label"><i class="bi bi-person-circle"></i> Nama Pengadu</label>
                                 <input type="text" class="form-control form-control-lg" id="nama" name="nama"
                                     placeholder="Masukkan nama Anda" value="{{ old('nama') }}" required>
                                 @error('nama')
@@ -25,7 +25,7 @@
 
                             <!-- Input Gambar dengan Preview -->
                             <div class="mb-3">
-                                <label for="gambar" class="form-label">Pilih Gambar</label>
+                                <label for="gambar" class="form-label"><i class="bi bi-image"></i> Pilih Gambar</label>
                                 <input type="file" class="form-control form-control-lg" id="gambar" name="gambar"
                                     accept="image/*" onchange="previewImage(event)">
                                 @error('gambar')
@@ -42,7 +42,7 @@
 
                             <!-- Isi Pengaduan -->
                             <div class="mb-3">
-                                <label for="isi_pengaduan" class="form-label">Isi Pengaduan</label>
+                                <label for="isi_pengaduan" class="form-label"><i class="bi bi-chat-left-quote-fill"></i> Isi Pengaduan</label>
                                 <textarea class="form-control form-control-lg" id="isi_pengaduan" name="isi_pengaduan" rows="4"
                                     placeholder="Deskripsikan pengaduan Anda" required>{{ old('isi_pengaduan') }}</textarea>
                                 @error('isi_pengaduan')

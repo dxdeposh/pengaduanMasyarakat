@@ -14,13 +14,13 @@
 
         <div class="card shadow-lg border-0 rounded-lg">
             <div class="card-body">
-                <h5 class="card-title">{{ $pengaduan->nama }}</h5>
-                <p class="card-text">{{ $pengaduan->isi_pengaduan }}</p>
-                <p><strong>Status:</strong> <span class="badge bg-info">{{ ucfirst($pengaduan->status) }}</span></p>
+                <h5 class="card-title"><i class="bi bi-person-circle"></i> {{ $pengaduan->nama }}</h5>
+                <p class="card-text"><i class="bi bi-card-text"></i> {{ $pengaduan->isi_pengaduan }}</p>
+                <p><strong>Status:</strong> <span class="badge bg-info"><i class="bi bi-info-circle"></i> {{ ucfirst($pengaduan->status) }}</span></p>
 
                 <!-- Tampilkan Tanggal -->
                 <p><strong>Dikirim pada:</strong> <span
-                        class="text-muted">{{ \Carbon\Carbon::parse($pengaduan->created_at)->diffForHumans() }}</span></p>
+                        class="text-muted"><i class="bi bi-calendar-event"></i> {{ \Carbon\Carbon::parse($pengaduan->created_at)->diffForHumans() }}</span></p>
 
                 <!-- Menampilkan gambar jika ada -->
                 @if ($pengaduan->gambar)
