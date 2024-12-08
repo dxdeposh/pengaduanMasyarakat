@@ -29,37 +29,6 @@
             </a>
         </div>
 
-        {{-- <!-- Daftar Pengaduan -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            @foreach ($pengaduans as $pengaduan)
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $pengaduan->nama }}</h5>
-                            <p class="card-text">{{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
-                            <span class="badge bg-info">{{ ucfirst($pengaduan->status) }}</span>
-
-                            <div class="mt-3">
-                                <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
-                                        class="bi bi-pencil-square"></i> Edit</a>
-                                <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
-                                    style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
-                                        Hapus</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div> --}}
-
-
-
-
-
         {{-- Status --}}
 
         @foreach ($pengaduans as $pengaduan)
@@ -99,7 +68,6 @@
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check"></i> Ubah
                                     Status</button>
                             </form> --}}
-
                             <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
                                 style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
@@ -107,43 +75,67 @@
                                 <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
                                     Hapus</button>
                             </form>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
 
-
-
-        {{-- // Status --}}
-
         {{-- Testimoni Pengguna --}}
-
-        <div class="card mt-4">
-            <div class="card-header">
-                <h5>Testimoni Pengguna</h5>
+        <div class="card mt-4 shadow-lg border-0 rounded-lg">
+            <div class="card-header bg-gradient text-white">
+                <h5 class="mb-0">Testimoni Pengguna</h5>
             </div>
             <div class="card-body">
-                <p>"Sistem pengaduan ini sangat membantu saya dalam menyampaikan masalah yang saya hadapi. Semoga lebih
-                    cepat diproses!"</p>
-                <footer class="blockquote-footer">Nama Pengguna</footer>
-            </div>
-            <div class="card-body">
-                <p>"Sistem pengaduan ini sangat membantu saya dalam menyampaikan masalah yang saya hadapi. Semoga lebih
-                    cepat diproses!"</p>
-                <footer class="blockquote-footer">Nama Pengguna</footer>
-            </div>
-            <div class="card-body">
-                <p>"Sistem pengaduan ini sangat membantu saya dalam menyampaikan masalah yang saya hadapi. Semoga lebih
-                    cepat diproses!"</p>
-                <footer class="blockquote-footer">Nama Pengguna</footer>
+                @foreach ($testimonis as $testimoni)
+                    <div class="testimonial-item mb-4 p-4 rounded-lg border border-light shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <!-- Gambar Profil Pengguna -->
+                            <img src="{{ asset('images/1733638445.png') }}" alt="User Avatar" class="rounded-circle me-3"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">{{ $testimoni->nama }}</h6>
+                                <small class="text-muted">Pengguna</small>
+                            </div>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">{{ $testimoni->testimoni }}</p>
+                        </blockquote>
+                    </div>
+                @endforeach
             </div>
         </div>
+        {{-- End Testimoni Pengguna --}}
 
 
-        {{-- //Testimoni Pengguna --}}
+        {{-- Form untuk menambahkan testimoni --}}
+        <div class="card mt-4 shadow-lg border-0 rounded-lg">
+            <div class="card-header bg-gradient text-white">
+                <h5 class="mb-0">Tambah Testimoni</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('testimoni.store') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Pengguna</label>
+                        <input type="text" class="form-control form-control-lg shadow-sm" id="nama" name="nama"
+                            required placeholder="Masukkan nama Anda" style="border-radius: 10px;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="testimoni" class="form-label">Testimoni</label>
+                        <textarea class="form-control form-control-lg shadow-sm" id="testimoni" name="testimoni" rows="4" required
+                            placeholder="Tuliskan testimoni Anda" style="border-radius: 10px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 mt-3 py-3"
+                        style="border-radius: 10px; font-weight: bold; transition: background-color 0.3s ease;">
+                        Tambah Testimoni
+                    </button>
+                </form>
+            </div>
+        </div>
+        {{-- End Testimoni Pengguna --}}
+
+
 
         <!-- Pagination -->
         <div class="mt-4">

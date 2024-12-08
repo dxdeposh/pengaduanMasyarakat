@@ -1,9 +1,12 @@
-
 /* Body */
 
 body {
-    background-color: #F5F7FA; /* Warna abu-abu terang */
-    background-image: linear-gradient(to bottom right, #F5F7FA, #e0e0e0); /* Gradasi lembut */
+    background-color: #f5f7fa; /* Warna abu-abu terang */
+    background-image: linear-gradient(
+        to bottom right,
+        #f5f7fa,
+        #e0e0e0
+    ); /* Gradasi lembut */
     color: #333; /* Warna teks yang nyaman dibaca */
     min-height: 100vh;
     display: flex;
@@ -18,7 +21,6 @@ body {
     margin-top: 30px;
     flex-grow: 1;
 }
-
 
 /* // Body */
 
@@ -38,7 +40,6 @@ body {
     padding: 20px;
 }
 /* // Card */
-
 
 .form-control {
     border-radius: 10px;
@@ -90,12 +91,13 @@ body {
 }
 /* // Button */
 
-
-input[type="text"], textarea {
+input[type="text"],
+textarea {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus,
+textarea:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -108,5 +110,18 @@ input[type="text"]:focus, textarea:focus {
 @media (max-width: 767px) {
     .card-body {
         padding: 15px;
+    }
+}
+
+.testimonial-item {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

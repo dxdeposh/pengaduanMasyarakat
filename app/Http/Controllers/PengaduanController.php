@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimoni;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 
 class PengaduanController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        // Ambil pencarian dari query string jika ada
-        $search = $request->get('search');
+        // Ambil semua testimoni dari database
+        $testimonis = Testimoni::all();
 
-        // Gunakan paginate dan search
-        $pengaduans = Pengaduan::when($search, function ($query, $search) {
-            return $query->where('nama', 'like', '%' . $search . '%')
-                ->orWhere('isi_pengaduan', 'like', '%' . $search . '%');
-        })->paginate(100); // 6 item per halaman (bisa disesuaikan)
+        // Ambil pengaduan dari database (misalnya)
+        $pengaduans = Pengaduan::paginate(10);
 
-        return view('pengaduan.index', compact('pengaduans'));
+        // Kirim data pengaduan dan testimoni ke view
+        return view('pengaduan.index', compact('pengaduans', 'testimonis'));
     }
+
 
     public function create()
     {
