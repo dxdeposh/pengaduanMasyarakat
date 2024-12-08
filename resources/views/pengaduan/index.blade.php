@@ -66,9 +66,9 @@
             <div class="col mt-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $pengaduan->nama }}</h5>
-                        <p class="card-text">{{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
-                        <span class="badge bg-info">{{ ucfirst($pengaduan->status) }}</span>
+                        <h5 class="card-title"><i class="bi bi-person-circle"></i> {{ $pengaduan->nama }}</h5>
+                        <p class="card-text"><i class="bi bi-card-text"></i> {{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
+                        <span class="badge bg-info"><i class="bi bi-info-circle"></i> {{ ucfirst($pengaduan->status) }}</span>
 
                         <div class="mt-3">
                             <!-- Tombol Lihat Selengkapnya -->
@@ -80,13 +80,13 @@
                                     class="bi bi-pencil-square"></i> Edit</a>
 
                             <!-- Tombol untuk update status -->
-                            <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
+                            {{-- <form action="{{ route('pengaduan.updateStatus', $pengaduan->id) }}" method="POST"
                                 style="display:inline;">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check"></i> Ubah
                                     Status</button>
-                            </form>
+                            </form> --}}
 
                             <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
                                 style="display:inline;" onsubmit="return confirmDelete()">
@@ -112,6 +112,16 @@
         <div class="card mt-4">
             <div class="card-header">
                 <h5>Testimoni Pengguna</h5>
+            </div>
+            <div class="card-body">
+                <p>"Sistem pengaduan ini sangat membantu saya dalam menyampaikan masalah yang saya hadapi. Semoga lebih
+                    cepat diproses!"</p>
+                <footer class="blockquote-footer">Nama Pengguna</footer>
+            </div>
+            <div class="card-body">
+                <p>"Sistem pengaduan ini sangat membantu saya dalam menyampaikan masalah yang saya hadapi. Semoga lebih
+                    cepat diproses!"</p>
+                <footer class="blockquote-footer">Nama Pengguna</footer>
             </div>
             <div class="card-body">
                 <p>"Sistem pengaduan ini sangat membantu saya dalam menyampaikan masalah yang saya hadapi. Semoga lebih
