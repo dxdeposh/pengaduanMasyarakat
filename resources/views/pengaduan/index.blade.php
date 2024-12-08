@@ -29,7 +29,7 @@
             </a>
         </div>
 
-        {{-- Status --}}
+        {{-- Daftar Pengaduan --}}
 
         @foreach ($pengaduans as $pengaduan)
             <div class="col mt-4">
@@ -68,7 +68,7 @@
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check"></i> Ubah
                                     Status</button>
                             </form>
-                            
+
                             <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST"
                                 style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
@@ -81,6 +81,8 @@
                 </div>
             </div>
         @endforeach
+        
+        {{-- // End Daftar Pengaduan --}}
 
         {{-- Testimoni Pengguna --}}
         <div class="card mt-4 shadow-lg border-0 rounded-lg">

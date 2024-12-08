@@ -8,17 +8,24 @@ use Illuminate\Http\Request;
 
 class PengaduanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        // Ambil pencarian dari query string jika ada
+        $search = $request->get('search');
+
+        // Gunakan paginate dan search
+        $pengaduans = Pengaduan::when($search, function ($query, $search) {
+            return $query->where('nama', 'like', '%' . $search . '%')
+                ->orWhere('isi_pengaduan', 'like', '%' . $search . '%');
+        })->paginate(10);  // Menyesuaikan jumlah halaman sesuai kebutuhan
+
         // Ambil semua testimoni dari database
         $testimonis = Testimoni::all();
-
-        // Ambil pengaduan dari database (misalnya)
-        $pengaduans = Pengaduan::paginate(10);
 
         // Kirim data pengaduan dan testimoni ke view
         return view('pengaduan.index', compact('pengaduans', 'testimonis'));
     }
+
 
 
     public function create()
