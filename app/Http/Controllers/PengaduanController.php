@@ -31,12 +31,25 @@ class PengaduanController extends Controller
         $request->validate([
             'nama' => 'required',
             'isi_pengaduan' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Pengaduan::create($request->all());
+        // Proses gambar
+        if ($request->hasFile('gambar')) {
+            $imageName = time() . '.' . $request->gambar->extension(); // Nama file gambar dengan timestamp
+            $request->gambar->move(public_path('images'), $imageName); // Simpan gambar di folder public/images
+        }
+
+        // Simpan pengaduan ke database
+        Pengaduan::create([
+            'nama' => $request->nama,
+            'isi_pengaduan' => $request->isi_pengaduan,
+            'gambar' => isset($imageName) ? $imageName : null, // Jika ada gambar, simpan nama gambar
+        ]);
 
         return redirect()->route('pengaduan.index')->with('success', 'Pengaduan berhasil dikirim');
     }
+
 
     public function edit(Pengaduan $pengaduan)
     {
@@ -45,15 +58,35 @@ class PengaduanController extends Controller
 
     public function update(Request $request, Pengaduan $pengaduan)
     {
+        // Validasi input
         $request->validate([
             'nama' => 'required',
             'isi_pengaduan' => 'required',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi gambar (opsional)
         ]);
 
-        $pengaduan->update($request->all());
+        // Update data pengaduan lainnya
+        $pengaduan->update($request->except('gambar')); // Menjaga agar gambar tidak ikut diupdate langsung
+
+        // Menangani file gambar jika ada
+        if ($request->hasFile('gambar')) {
+            // Menghapus gambar lama jika ada
+            if ($pengaduan->gambar && file_exists(public_path('images/' . $pengaduan->gambar))) {
+                unlink(public_path('images/' . $pengaduan->gambar)); // Menghapus file lama
+            }
+
+            // Menyimpan gambar baru
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('images'), $imageName);
+
+            // Update nama gambar di database
+            $pengaduan->gambar = $imageName;
+            $pengaduan->save(); // Simpan perubahan gambar ke database
+        }
 
         return redirect()->route('pengaduan.index')->with('success', 'Pengaduan berhasil diperbarui');
     }
+
 
     public function destroy(Pengaduan $pengaduan)
     {

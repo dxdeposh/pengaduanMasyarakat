@@ -13,5 +13,6 @@ class Pengaduan extends Model
         'nama',
         'isi_pengaduan',
         'status',
+        'gambar',
     ];
 }

@@ -67,8 +67,20 @@
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title"><i class="bi bi-person-circle"></i> {{ $pengaduan->nama }}</h5>
-                        <p class="card-text"><i class="bi bi-card-text"></i> {{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
-                        <span class="badge bg-info"><i class="bi bi-info-circle"></i> {{ ucfirst($pengaduan->status) }}</span>
+                        <p class="card-text"><i class="bi bi-card-text"></i>
+                            {{ Str::limit($pengaduan->isi_pengaduan, 100) }}</p>
+
+                        <!-- Menampilkan Gambar Pengaduan -->
+                        @if ($pengaduan->gambar)
+                            <div class="mt-3">
+                                <img src="{{ asset('images/' . $pengaduan->gambar) }}" alt="Gambar Pengaduan"
+                                    class="img-fluid rounded" style="max-height: 200px; width: auto;">
+                            </div>
+                        @endif
+
+                        {{-- Status Pengaduan --}}
+                        <span class="badge bg-info mt-3"><i class="bi bi-info-circle"></i>
+                            {{ ucfirst($pengaduan->status) }}</span>
 
                         <div class="mt-3">
                             <!-- Tombol Lihat Selengkapnya -->
