@@ -36,9 +36,9 @@
         @endif
 
         <!-- Page Content -->
-        {{-- <main>
-            {{ $slot }}
-        </main> --}}
+        <main>
+            {{-- {{ $slot }} --}}
+        </main>
 
         <!-- Konten Halaman -->
         <div class="container mt-4">
