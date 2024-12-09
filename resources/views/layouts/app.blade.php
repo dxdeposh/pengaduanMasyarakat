@@ -1,69 +1,49 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manajemen Pengaduan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body>
-    <!-- Navbar dengan sticky-top dan desain yang lebih keren -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-lg">
-        <div class="container-fluid">
-            <!-- Logo / Nama Aplikasi -->
-            <a class="navbar-brand fw-bold text-light" href="#">Manajemen Pengaduan</a>
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100">
+        <!-- Navbar -->
+        <livewire:layout.navigation />
 
-            <!-- Button untuk menu di layar kecil -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
 
-            <!-- Menu Navbar -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-light px-3 py-2 rounded-3 hover-effect" aria-current="page"
-                            href="/">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light px-3 py-2 rounded-3 hover-effect" href="/pengaduan">Pengaduan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light px-3 py-2 rounded-3 hover-effect" href="/kontak">Kontak</a>
-                    </li>
+        <!-- Page Content -->
+        {{-- <main>
+            {{ $slot }}
+        </main> --}}
 
-                    <!-- Menu Login / Logout -->
-                    @auth
-                        <li class="nav-item">
-                            <a class="nav-link text-light px-3 py-2 rounded-3 hover-effect" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                                @csrf
-                                <button type="submit" class="nav-link btn btn-link text-light hover-effect">Logout</button>
-                            </form>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link text-light px-3 py-2 rounded-3 hover-effect" href="/login">Login</a>
-                        </li>
-                    @endauth
-                </ul>
-            </div>
+        <!-- Konten Halaman -->
+        <div class="container mt-4">
+            @yield('content')
         </div>
-    </nav>
-
-    <!-- Konten Halaman -->
-    <div class="container mt-4">
-        @yield('content')
     </div>
 
     <!-- Skrip Khusus Halaman -->
@@ -72,17 +52,6 @@
     <!-- Bootstrap JS (untuk navbar responsive dan komponen lainnya) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS (untuk efek scroll navbar) -->
-    <script>
-        window.onscroll = function() {
-            var navbar = document.querySelector('.navbar');
-            if (window.pageYOffset > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }
-    </script>
 </body>
 
 </html>

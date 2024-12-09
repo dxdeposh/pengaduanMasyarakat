@@ -131,7 +131,7 @@
                     </div>
                     <button type="submit" class="btn btn-success w-100 mt-3 py-3"
                         style="border-radius: 10px; font-weight: bold; transition: background-color 0.3s ease;">
-                        Tambah Testimoni
+                        <i class="bi bi-plus-circle"></i> Tambah Testimoni
                     </button>
                 </form>
             </div>
