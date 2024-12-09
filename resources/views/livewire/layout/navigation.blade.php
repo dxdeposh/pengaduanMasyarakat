@@ -15,7 +15,7 @@ new class extends Component {
     }
 }; ?>
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 sticky top-0 z-50">
+<nav x-data="{ open: false }" class="bg-sky-400 bg-opacity-70 border-b border-gray-100 sticky top-0 z-50">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -23,8 +23,13 @@ new class extends Component {
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" wire:navigate>
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <img src="{{ asset('images/logoNav.png') }}" alt="Logo" class="block h-16 w-16">
                     </a>
+
+                    <div class="ml-3 flex flex-col items-start text-gray-800">
+                        <span class="text-lg font-semibold">SIPMA</span>
+                        <span class="text-sm mt-0.5">Sistem Informasi Pengaduan Masyarakat</span>
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
@@ -97,6 +102,10 @@ new class extends Component {
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('pengaduan.index')" :active="request()->routeIs('pengaduan')" wire:navigate>
+                {{ __('Pengaduan') }}
             </x-responsive-nav-link>
         </div>
 
