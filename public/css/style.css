@@ -176,7 +176,7 @@ textarea:focus {
 }
 
 .navbar-toggler-icon {
-    background-color: #fff;
+    background-color: transparent;
 }
 
 /* Gaya tombol login/logout */
