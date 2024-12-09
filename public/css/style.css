@@ -125,3 +125,61 @@ textarea:focus {
         opacity: 1;
     }
 }
+
+/* Navbar dengan background biru */
+.navbar {
+    background-color: #007bff;
+    /* Biru Gelap */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    opacity: 63%;
+}
+
+/* Efek Hover untuk item navbar */
+.hover-effect:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+/* Navbar lebih gelap saat scroll */
+.navbar.scrolled {
+    background-color: #0056b3;
+    /* Biru lebih gelap */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Menambahkan bayangan pada navbar */
+.navbar.shadow-lg {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mengatur tampilan teks navbar */
+.navbar-brand,
+.nav-link {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Menyesuaikan warna teks navbar menjadi terang */
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-brand {
+    color: #ffffff;
+}
+
+/* Responsif untuk menu di mobile */
+.navbar-toggler {
+    border-color: #fff;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+/* Gaya tombol login/logout */
+.btn-link {
+    color: #fff !important;
+}
