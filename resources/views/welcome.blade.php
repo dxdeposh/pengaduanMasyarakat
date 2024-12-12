@@ -82,12 +82,12 @@
         <div>
             <!-- Main Headline -->
             <h1 class="headline" data-aos="fade-in" data-aos-duration="1500">
-                Welcome to Our Amazing Experience!
+                Selamat datang di Pengalaman Luar Biasa Kami!
             </h1>
 
             <!-- Sub-headline -->
             <p class="sub-headline text-xl mb-6" data-aos="fade-in" data-aos-duration="2000">
-                Join us today to explore what we have to offer.
+                Bergabunglah bersama kami hari ini untuk menjelajahi segala yang kami tawarkan.
             </p>
 
             <!-- Login Button -->
