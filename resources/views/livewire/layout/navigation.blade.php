@@ -1,24 +1,23 @@
-<?php
-
-use App\Livewire\Actions\Logout;
-use Livewire\Volt\Component;
-
-new class extends Component {
-    /**
-     * Log the current user out of the application.
-     */
-    public function logout(Logout $logout): void
-    {
-        $logout();
-        $this->redirect('/', navigate: true);
-    }
-};
-?>
-
 <nav x-data="{ open: false, searchQuery: '' }" class="bg-gradient-to-r from-teal-500 to-cyan-600 sticky top-0 z-50 shadow-lg">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
+
+            <!-- Hamburger Icon for Mobile -->
+            <div class="sm:hidden flex items-center">
+                <button @click="open = !open" class="text-white focus:outline-none">
+                    <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
 
             <!-- Search Bar -->
             <div class="flex items-center w-full max-w-lg px-4">
@@ -31,7 +30,7 @@ new class extends Component {
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 sm:block hidden">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
@@ -84,19 +83,5 @@ new class extends Component {
                 </button>
             </div>
         </div>
-    </div>
-
-    <!-- Hamburger Icon for Mobile -->
-    <div class="sm:hidden flex items-center justify-center space-x-4">
-        <button @click="open = !open" class="text-white focus:outline-none">
-            <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-            <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
     </div>
 </nav>

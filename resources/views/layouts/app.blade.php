@@ -27,7 +27,7 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 flex">
         <!-- Sidebar -->
-        <div class="w-80 bg-white text-[#717171] sticky top-0 h-screen border-r-2 border-[#717171]">
+        <div class="w-80 bg-white text-[#717171] sticky top-0 h-screen border-r-2 border-[#717171] sm:block hidden">
             @livewire('sidebar')
         </div>
 
