@@ -47,15 +47,6 @@
                 <span>Profile</span>
             </a>
 
-            <!-- Settings -->
-            <a href="#"
-                class="flex items-center p-3 rounded-lg transition-all duration-300 ease-in-out
-                {{ request()->routeIs('settings') ? 'bg-[#14a7a0] text-white shadow-lg' : 'hover:bg-[#14a7a0] hover:text-white hover:shadow-md' }}
-                hover:scale-105">
-                <i class="bi bi-gear-fill w-6 h-6 mr-3"></i>
-                <span>Settings</span>
-            </a>
-
             <!-- Logout -->
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
@@ -70,10 +61,10 @@
             </form>
 
             <!-- Horizontal Divider -->
-            <hr class="my-4 border-t border-[#e0e0e0]">
+            <hr class="my-4 border-t border-[#717171]">
 
             <!-- Tentang Kami -->
-            <a href="#"
+            <a href="{{ route('tentang_kami') }}"
                 class="flex items-center p-3 rounded-lg border border-[#14a7a0] text-[#717171] transition-all duration-300 ease-in-out hover:bg-[#14a7a0] hover:text-white hover:shadow-md hover:scale-105">
                 <i class="bi bi-info-circle w-6 h-6 mr-3"></i>
                 <span>Tentang Kami</span>

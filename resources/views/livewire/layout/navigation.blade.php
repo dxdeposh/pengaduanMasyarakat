@@ -30,7 +30,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="flex items-center space-x-4 sm:block hidden">
+            <div class="flex items-center space-x-4 sm:block ">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
