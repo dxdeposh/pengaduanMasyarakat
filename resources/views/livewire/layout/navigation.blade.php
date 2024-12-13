@@ -31,7 +31,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="flex items-center space-x-4 sm:block ">
+            <div class="flex items-center space-x-4 sm:block">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
@@ -48,13 +48,30 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" wire:navigate>{{ __('Profile') }}</x-dropdown-link>
-                        <button wire:click="logout" class="w-full text-left">
-                            <x-dropdown-link>{{ __('Log Out') }}</x-dropdown-link>
+                        <x-dropdown-link :href="'#'" wire:navigate>{{ __('Profile') }}</x-dropdown-link>
+                        <x-dropdown-link :href="'#'" wire:navigate>{{ __('Settings') }}</x-dropdown-link>
+                        <x-dropdown-link :href="'#'" wire:navigate>{{ __('Notifications') }}</x-dropdown-link>
+                        <button wire:click="toggleTheme" class="w-full text-left">
+                            <x-dropdown-link>{{ __('Toggle Dark Mode') }}</x-dropdown-link>
                         </button>
+
+                        <!-- Logout Link with same styling as Profile, Settings, and Notifications -->
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            @csrf
+                        </form>
+
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="transition-colors duration-200 hover:bg-teal-200 px-4 py-2 text-teal-700 w-full text-left flex items-center">
+                            <i class="bi bi-box-arrow-right w-6 h-6 mr-3"></i>
+                            <span>{{ __('Log Out') }}</span>
+                        </a>
                     </x-slot>
+
+
                 </x-dropdown>
             </div>
+
         </div>
     </div>
 
