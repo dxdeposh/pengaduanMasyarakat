@@ -86,41 +86,41 @@
 
                 <!-- Anggota Tim 2 -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <img src="{{ asset('images/student2.jpg') }}" alt="Tim 2"
-                        class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-xl font-semibold text-[#14a7a0]">Siti Aisyah</h3>
+                    <img src="{{ asset('images/aji.jpg') }}" alt="Tim 2"
+                        class="w-full h-[1] object-cover rounded-t-lg mb-4">
+                    <h3 class="text-xl font-semibold text-[#14a7a0]">Rahman Ajie</h3>
                     <p class="text-gray-600">Frontend Developer</p>
-                    <p class="text-gray-500">Siti berfokus pada pengembangan antarmuka pengguna aplikasi, memastikan
+                    <p class="text-gray-500">Ajie berfokus pada pengembangan antarmuka pengguna aplikasi, memastikan
                         tampilan aplikasi menarik dan mudah digunakan oleh masyarakat.</p>
                 </div>
 
                 <!-- Anggota Tim 3 -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <img src="{{ asset('images/student3.jpg') }}" alt="Tim 3"
-                        class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-xl font-semibold text-[#14a7a0]">Budi Santoso</h3>
+                    <img src="{{ asset('images/diaz.jpg') }}" alt="Tim 3"
+                        class="w-full h-[1] object-cover rounded-t-lg mb-4">
+                    <h3 class="text-xl font-semibold text-[#14a7a0]">Rachmat Adiaz Arrofi</h3>
                     <p class="text-gray-600">Database Administrator</p>
-                    <p class="text-gray-500">Budi bertugas merancang dan mengelola database untuk aplikasi pengaduan,
+                    <p class="text-gray-500">Diaz bertugas merancang dan mengelola database untuk aplikasi pengaduan,
                         memastikan data pengaduan tersimpan dengan aman dan mudah diakses.</p>
                 </div>
 
                 <!-- Anggota Tim 4 -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <img src="{{ asset('images/student4.jpg') }}" alt="Tim 4"
-                        class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-xl font-semibold text-[#14a7a0]">Dina Putri</h3>
+                    <img src="{{ asset('images/dzikri.jpg') }}" alt="Tim 4"
+                        class="w-full h-[1] object-cover rounded-t-lg mb-4">
+                    <h3 class="text-xl font-semibold text-[#14a7a0]">Dzikri  Thoriq Al Ariiq</h3>
                     <p class="text-gray-600">Quality Assurance</p>
-                    <p class="text-gray-500">Dina bertugas memastikan aplikasi bebas dari bug dan menjalankan uji coba untuk
+                    <p class="text-gray-500">Dzikri bertugas memastikan aplikasi bebas dari bug dan menjalankan uji coba untuk
                         memastikan fitur berjalan sesuai dengan spesifikasi yang diinginkan.</p>
                 </div>
 
                 <!-- Anggota Tim 5 -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <img src="{{ asset('images/student5.jpg') }}" alt="Tim 5"
-                        class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-xl font-semibold text-[#14a7a0]">Rina Sari</h3>
+                    <img src="{{ asset('images/zaki.jpg') }}" alt="Tim 5"
+                        class="w-full h-[1] object-cover rounded-t-lg mb-4">
+                    <h3 class="text-xl font-semibold text-[#14a7a0]">M. Zakiansyah</h3>
                     <p class="text-gray-600">UX/UI Designer</p>
-                    <p class="text-gray-500">Rina merancang desain antarmuka aplikasi, berfokus pada pengalaman pengguna
+                    <p class="text-gray-500">Zaki merancang desain antarmuka aplikasi, berfokus pada pengalaman pengguna
                         untuk memastikan aplikasi mudah digunakan dan memenuhi kebutuhan pengguna.</p>
                 </div>
             </div>
