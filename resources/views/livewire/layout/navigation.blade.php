@@ -1,4 +1,5 @@
-<nav x-data="{ open: false, searchQuery: '' }" class="bg-gradient-to-r from-teal-500 to-cyan-600 sticky top-0 z-50 shadow-lg">
+<nav x-data="{ open: false, searchQuery: '' }"
+    class="bg-gradient-to-r from-teal-500 to-cyan-600 sticky top-0 z-50 shadow-lg opacity-90 hover:opacity-100 transition-opacity duration-300">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
