@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>SIPMA</title>
-     <!-- Favicon -->
-     <link rel="icon" href="{{ asset('images/logoWeb.png') }}" type="image/png">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/logoWeb.png') }}" type="image/png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -25,27 +25,35 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        <!-- Navbar -->
-        <livewire:layout.navigation />
+    <div class="min-h-screen bg-gray-100 flex">
+        <!-- Sidebar -->
+        <div class="w-80 bg-white text-[#717171] sticky top-0 h-screen border-r-2 border-[#717171]">
+            @livewire('sidebar')
+        </div>
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
+        <!-- Main Content Area -->
+        <div class="flex-1">
+            <!-- Navbar -->
+            <livewire:layout.navigation />
 
-        <!-- Page Content -->
-        <main>
-            {{-- {{ $slot }} --}}
-        </main>
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
 
-        <!-- Konten Halaman -->
-        <div class="container mt-4">
-            @yield('content')
+            <!-- Page Content -->
+            <main>
+                {{-- {{ $slot }} --}}
+            </main>
+
+            <!-- Konten Halaman -->
+            <div class="container mt-4">
+                @yield('content')
+            </div>
         </div>
     </div>
 
@@ -54,7 +62,6 @@
 
     <!-- Bootstrap JS (untuk navbar responsive dan komponen lainnya) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
