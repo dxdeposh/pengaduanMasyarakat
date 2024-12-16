@@ -82,12 +82,12 @@
         <div>
             <!-- Main Headline -->
             <h1 class="headline" data-aos="fade-in" data-aos-duration="1500">
-                Selamat datang di Pengalaman Luar Biasa Kami!
+                Selamat datang di SIPMA 👋🏼
             </h1>
 
             <!-- Sub-headline -->
             <p class="sub-headline text-xl mb-6" data-aos="fade-in" data-aos-duration="2000">
-                Bergabunglah bersama kami hari ini untuk menjelajahi segala yang kami tawarkan.
+                Laporkan Masalah, Wujudkan Solusi.
             </p>
 
             <!-- Login Button -->
